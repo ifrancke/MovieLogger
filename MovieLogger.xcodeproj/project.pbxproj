@@ -16,6 +16,7 @@
 		46685CBA272F64C300CD4951 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46685CB9272F64C300CD4951 /* ItemsViewController.swift */; };
 		46685CBC272F671C00CD4951 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46685CBB272F671C00CD4951 /* Item.swift */; };
 		46685CBE272F6DA800CD4951 /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46685CBD272F6DA800CD4951 /* ItemStore.swift */; };
+		46685CC02730CE3D00CD4951 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46685CBF2730CE3D00CD4951 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		46685CB9272F64C300CD4951 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		46685CBB272F671C00CD4951 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		46685CBD272F6DA800CD4951 /* ItemStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
+		46685CBF2730CE3D00CD4951 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				46685C97272F645C00CD4951 /* Info.plist */,
 				46685CB9272F64C300CD4951 /* ItemsViewController.swift */,
 				46685CBD272F6DA800CD4951 /* ItemStore.swift */,
+				46685CBF2730CE3D00CD4951 /* DetailViewController.swift */,
 			);
 			path = MovieLogger;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			files = (
 				46685CBA272F64C300CD4951 /* ItemsViewController.swift in Sources */,
 				46685CBC272F671C00CD4951 /* Item.swift in Sources */,
+				46685CC02730CE3D00CD4951 /* DetailViewController.swift in Sources */,
 				46685CBE272F6DA800CD4951 /* ItemStore.swift in Sources */,
 				46685C8C272F645800CD4951 /* AppDelegate.swift in Sources */,
 			);
