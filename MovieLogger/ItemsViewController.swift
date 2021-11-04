@@ -1,5 +1,5 @@
 //
-//  ItemsViewController.swift
+//  MoviesViewController.swift
 //  MovieLogger
 //
 //  Created by Mac Admin on 10/31/21.
@@ -8,10 +8,10 @@
 
 import UIKit
 class ItemsViewController: UITableViewController {
-    var itemStore: ItemStore!
+    var movieStore: MovieStore!
     override func tableView(_ tableView: UITableView,
                             numberOfRowsInSection section: Int) -> Int {
-        return itemStore.allItems.count
+        return movieStore.allMovies.count
     }
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -20,12 +20,12 @@ class ItemsViewController: UITableViewController {
                                                  for: indexPath)
         
         
-        // Set the text on the cell with the description of the item
-        // that is at the nth index of items, where n = row this cell
+        // Set the text on the cell with the description of the movie
+        // that is at the nth index of movies, where n = row this cell
         // will appear in on the tableview
-        let item = itemStore.allItems[indexPath.row]
-        cell.textLabel?.text = item.title
-        cell.detailTextLabel?.text = String(item.starRating)
+        let movie = movieStore.allMovies[indexPath.row]
+        cell.textLabel?.text = movie.title
+        cell.detailTextLabel?.text = String(movie.starRating)
         return cell
     }
     
@@ -33,10 +33,10 @@ class ItemsViewController: UITableViewController {
         super.viewDidLoad()
     }
     @IBAction func addNewItem(_ sender: UIBarButtonItem) {
-        // Create a new item and add it to the store
-        let newItem = itemStore.createItem()
-        // Figure out where that item is in the array
-        if let index = itemStore.allItems.index(of: newItem) {
+        // Create a new movie and add it to the store
+        let newMovie = movieStore.createMovie()
+        // Figure out where that movie is in the array
+        if let index = movieStore.allMovies.index(of: newMovie) {
             let indexPath = IndexPath(row: index, section: 0)
             // Insert this new row into the table
             tableView.insertRows(at: [indexPath], with: .automatic)
@@ -48,10 +48,10 @@ class ItemsViewController: UITableViewController {
                             forRowAt indexPath: IndexPath) {
         // If the table view is asking to commit a delete command...
         if editingStyle == .delete {
-            let item = itemStore.allItems[indexPath.row]
+            let movie = movieStore.allMovies[indexPath.row]
             
-            let title = "Delete \(item.title)?"
-            let message = "Are you sure you want to delete this item?"
+            let title = "Delete \(movie.title)?"
+            let message = "Are you sure you want to delete this movie?"
             let ac = UIAlertController(title: title,
                                        message: message,
                                        preferredStyle: .actionSheet)
@@ -59,8 +59,8 @@ class ItemsViewController: UITableViewController {
             ac.addAction(cancelAction)
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive,
                                              handler: { (action) -> Void in
-                // Remove the item from the store
-                self.itemStore.removeItem(item)
+                // Remove the movie from the store
+                self.movieStore.removeMovie(movie)
                 // Also remove that row from the table view with an animation
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)
             })
@@ -73,19 +73,19 @@ class ItemsViewController: UITableViewController {
                             moveRowAt sourceIndexPath: IndexPath,
                             to destinationIndexPath: IndexPath) {
         // Update the model
-        itemStore.moveItem(from: sourceIndexPath.row, to: destinationIndexPath.row)
+        movieStore.moveMovie(from: sourceIndexPath.row, to: destinationIndexPath.row)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // If the triggered segue is the "showItem" segue
+        // If the triggered segue is the "showMovie" segue
         switch segue.identifier {
-        case "showItem"?:
+        case "showMovie"?:
             // Figure out which row was just tapped
             if let row = tableView.indexPathForSelectedRow?.row {
-                // Get the item associated with this row and pass it along
-                let item = itemStore.allItems[row]
+                // Get the movie associated with this row and pass it along
+                let movie = movieStore.allMovies[row]
                 let detailViewController
                     = segue.destination as! DetailViewController
-                detailViewController.item = item
+                detailViewController.movie = movie
             } default:
                 preconditionFailure("Unexpected segue identifier.")
         }

@@ -43,7 +43,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="AkC-id-MmQ" kind="show" identifier="showItem" id="1P5-9p-6Wi"/>
+                                    <segue destination="AkC-id-MmQ" kind="show" identifier="showMovie" id="1P5-9p-6Wi"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

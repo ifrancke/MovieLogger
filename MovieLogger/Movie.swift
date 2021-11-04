@@ -1,5 +1,5 @@
 //
-//  Item.swift
+//  Movie.swift
 //  MovieLogger
 //
 //  Created by Mac Admin on 10/31/21.
@@ -7,7 +7,7 @@
 //
 
 import UIKit
-class Item: NSObject {
+class Movie: NSObject {
     var title: String
     var starRating: Double
     var review: String?

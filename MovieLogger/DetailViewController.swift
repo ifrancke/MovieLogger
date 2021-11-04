@@ -14,8 +14,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var reviewField: UITextField!
     @IBOutlet weak var dateLabel: UILabel!
     
-    var item: Item! { didSet {
-        navigationItem.title = item.title
+    var movie: Movie! { didSet {
+        navigationItem.title = movie.title
         }
     }
     
@@ -34,24 +34,24 @@ class DetailViewController: UIViewController {
     }()
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        titleField.text = item.title
-        reviewField.text = item.review
+        titleField.text = movie.title
+        reviewField.text = movie.review
         ratingField.text =
-            numberFormatter.string(from: NSNumber(value: item.starRating))
-        dateLabel.text = dateFormatter.string(from: item.dateCreated)
+            numberFormatter.string(from: NSNumber(value: movie.starRating))
+        dateLabel.text = dateFormatter.string(from: movie.dateCreated)
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         // Clear first responder
         view.endEditing(true)
-        // "Save" changes to item
-        item.title = titleField.text ?? ""
-        item.review = reviewField.text
+        // "Save" changes to movie
+        movie.title = titleField.text ?? ""
+        movie.review = reviewField.text
         if let ratingText = ratingField.text,
             let rating = numberFormatter.number(from: ratingText) {
-            item.starRating = rating.doubleValue
+            movie.starRating = rating.doubleValue
         } else {
-            item.starRating = 0
+            movie.starRating = 0
         }
     }
     
