@@ -14,7 +14,10 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var reviewField: UITextField!
     @IBOutlet weak var dateLabel: UILabel!
     
-    var item: Item!
+    var item: Item! { didSet {
+        navigationItem.title = item.title
+        }
+    }
     
     let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -37,4 +40,29 @@ class DetailViewController: UIViewController {
             numberFormatter.string(from: NSNumber(value: item.starRating))
         dateLabel.text = dateFormatter.string(from: item.dateCreated)
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // Clear first responder
+        view.endEditing(true)
+        // "Save" changes to item
+        item.title = titleField.text ?? ""
+        item.review = reviewField.text
+        if let ratingText = ratingField.text,
+            let rating = numberFormatter.number(from: ratingText) {
+            item.starRating = rating.doubleValue
+        } else {
+            item.starRating = 0
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
+    @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+    
 }
