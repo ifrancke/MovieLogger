@@ -9,10 +9,40 @@
 import UIKit
 class MovieStore {
     var allMovies = [Movie]()
+    let movieArchiveURL: URL = {
+        let documentsDirectories =
+            FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentDirectory = documentsDirectories.first!
+        return documentDirectory.appendingPathComponent("movies.archive")
+    }()
+    
+    func saveChanges() -> Bool {
+        print("Saving items to \(movieArchiveURL.path)")
+        do {
+            let data = try PropertyListEncoder().encode(allMovies)
+            try data.write(to: movieArchiveURL)
+            return true
+        } catch {
+            print("Error saving items: \(error) ")
+        }
+        return false
+    }
+
     
     init() {
         for _ in 0..<5 {
             createMovie()
+        }
+        typealias allMoviesType = [Movie]?
+        do {
+            let data = try Data(contentsOf: movieArchiveURL)
+            let decoder = PropertyListDecoder()
+            if let allMovies = try decoder.decode(allMoviesType.self, from: data){
+                self.allMovies = allMovies
+            }
+            
+        } catch {
+            print("movieStore init error: \(error)")
         }
     }
     

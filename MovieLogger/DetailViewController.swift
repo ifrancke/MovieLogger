@@ -46,7 +46,7 @@ class DetailViewController: UIViewController {
         view.endEditing(true)
         // "Save" changes to movie
         movie.title = titleField.text ?? ""
-        movie.review = reviewField.text
+        movie.review = reviewField.text ?? ""
         if let ratingText = ratingField.text,
             let rating = numberFormatter.number(from: ratingText) {
             movie.starRating = rating.doubleValue

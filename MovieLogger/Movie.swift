@@ -7,13 +7,13 @@
 //
 
 import UIKit
-class Movie: NSObject {
+class Movie: NSObject, Codable {
     var title: String
     var starRating: Double
-    var review: String?
+    var review: String
     let dateCreated: Date
     
-    init(title: String, review: String?, starRating: Double) {
+    init(title: String, review: String, starRating: Double) {
         self.title = title
         self.starRating = starRating
         self.review = review
@@ -36,7 +36,21 @@ class Movie: NSObject {
                       review: randomReview,
                       starRating: randomStars)
         } else {
-            self.init(title: "", review: nil, starRating: 0)
+            self.init(title: "", review: "", starRating: 0)
         }
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(title, forKey: "title")
+        aCoder.encode(dateCreated, forKey: "dateCreated")
+        aCoder.encode(starRating, forKey: "starRating")
+        aCoder.encode(review, forKey: "review")
+    }
+    required init(coder aDecoder: NSCoder) {
+        title = aDecoder.decodeObject(forKey: "title") as! String
+        dateCreated = aDecoder.decodeObject(forKey: "dateCreated") as! Date
+        starRating = aDecoder.decodeObject(forKey: "starRating") as! Double
+        review = aDecoder.decodeObject(forKey: "review") as! String
+        super.init()
     }
 }
