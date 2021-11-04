@@ -22,8 +22,8 @@ class Movie: NSObject, Codable {
     }
     convenience init(random: Bool = false) {
         if random {
-            let adjectives = ["Fluffy", "Rusty", "Shiny"]
-            let nouns = ["Bear", "Spork", "Mac"]
+            let adjectives = ["The Haunting of", "The Return of the", "Avatar 5:", "Harry Potter and the", "The Texax Chainsaw", "Curse of the", "Pirates of the Caribbean:"]
+            let nouns = ["Screaming Lake", "Queen", "Paddington 3", "Wolf", "App", "Beekeeper", "Electric Slide"]
             var idx = arc4random_uniform(UInt32(adjectives.count))
             let randomAdjective = adjectives[Int(idx)]
             idx = arc4random_uniform(UInt32(nouns.count))

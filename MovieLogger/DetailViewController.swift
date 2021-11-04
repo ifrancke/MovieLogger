@@ -18,6 +18,7 @@ class DetailViewController: UIViewController {
         navigationItem.title = movie.title
         }
     }
+    var movieStore: MovieStore!
     
     let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -64,5 +65,34 @@ class DetailViewController: UIViewController {
         view.endEditing(true)
     }
     
-    
+    //This is my attempt to implement the trash button, which doesn't work right now
+    @IBAction func deleteMovie(_ sender: UIBarButtonItem) {
+        let title = "Delete \(movie.title)?"
+        let message = "Are you sure you want to delete this item?"
+        let ac = UIAlertController(title: title,
+                                   message: message,
+                                   preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        ac.addAction(cancelAction)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive,
+                                         handler: { (action) -> Void in
+                                            // Remove the item from the store self.movieStore.removeMovie(movie)
+                                            // Also remove that row from the table view with an animation
+                                            //self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                                            
+        })
+        ac.addAction(deleteAction)
+        ac.addAction(UIAlertAction(title:"deleteMovie", style: .default, handler:  { action in self.performSegue(withIdentifier: "deleteMovie", sender: self) }))
+        // Remove the item from the store
+        //movieStore.removeMovie(movie)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "deleteMovie"?:
+            let itemsViewController = segue.destination as! ItemsViewController
+                itemsViewController.movieStore = movieStore
+        default:
+                preconditionFailure("Unexpected segue identifier.")
+        }
+    }
 }

@@ -86,6 +86,7 @@ class ItemsViewController: UITableViewController {
                 let detailViewController
                     = segue.destination as! DetailViewController
                 detailViewController.movie = movie
+                detailViewController.movieStore = movieStore
             } default:
                 preconditionFailure("Unexpected segue identifier.")
         }
