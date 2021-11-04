@@ -114,8 +114,25 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fSq-nQ-Iwq">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WGZ-3W-nEI">
                                         <rect key="frame" x="0.0" y="38" width="343" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5u-04-SQV">
+                                                <rect key="frame" x="0.0" y="0.0" width="62.5" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zf1-Eb-b3z">
+                                                <rect key="frame" x="62.5" y="0.0" width="280.5" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fSq-nQ-Iwq">
+                                        <rect key="frame" x="0.0" y="76" width="343" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6k-Ql-EEd">
                                                 <rect key="frame" x="0.0" y="0.0" width="54.5" height="30"/>
@@ -132,15 +149,17 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Watched" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DaI-ZS-IYL">
-                                        <rect key="frame" x="0.0" y="76" width="343" height="555"/>
+                                        <rect key="frame" x="0.0" y="114" width="343" height="517"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="ru1-ra-JiT" firstAttribute="leading" secondItem="q5u-04-SQV" secondAttribute="leading" id="4kn-N9-ahq"/>
                                     <constraint firstItem="DaI-ZS-IYL" firstAttribute="centerX" secondItem="YyP-tU-GYq" secondAttribute="centerX" id="5LK-qZ-kuD"/>
                                     <constraint firstItem="oMw-oa-SQ3" firstAttribute="leading" secondItem="jpy-xb-Lc7" secondAttribute="leading" id="GSx-Dt-Ta9"/>
+                                    <constraint firstItem="oMw-oa-SQ3" firstAttribute="leading" secondItem="Zf1-Eb-b3z" secondAttribute="leading" id="vHQ-95-kg6"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -155,6 +174,8 @@
                     </view>
                     <connections>
                         <outlet property="dateField" destination="DaI-ZS-IYL" id="FJr-2J-5f1"/>
+                        <outlet property="dateLabel" destination="DaI-ZS-IYL" id="3ej-L0-zKM"/>
+                        <outlet property="ratingField" destination="Zf1-Eb-b3z" id="MGm-PP-kcf"/>
                         <outlet property="reviewField" destination="jpy-xb-Lc7" id="tO1-24-iMT"/>
                         <outlet property="titleField" destination="oMw-oa-SQ3" id="gpR-0e-8ZN"/>
                     </connections>

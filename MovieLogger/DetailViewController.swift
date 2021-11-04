@@ -10,6 +10,7 @@ import UIKit
 class DetailViewController: UIViewController {
     
     @IBOutlet weak var titleField: UITextField!
+    @IBOutlet weak var ratingField: UITextField!
     @IBOutlet weak var reviewField: UITextField!
     @IBOutlet weak var dateLabel: UILabel!
     
@@ -32,6 +33,8 @@ class DetailViewController: UIViewController {
         super.viewWillAppear(animated)
         titleField.text = item.title
         reviewField.text = item.review
-        dateLabel.text = "\(item.dateCreated)"
+        ratingField.text =
+            numberFormatter.string(from: NSNumber(value: item.starRating))
+        dateLabel.text = dateFormatter.string(from: item.dateCreated)
     }
 }
