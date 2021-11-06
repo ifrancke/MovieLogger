@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		463BBF592733B16700EF7B83 /* Bebas-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 463BBF582733B16700EF7B83 /* Bebas-Regular.ttf */; };
+		463BBF5B273729A100EF7B83 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463BBF5A273729A100EF7B83 /* ImageStore.swift */; };
 		46685C8C272F645800CD4951 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46685C8B272F645800CD4951 /* AppDelegate.swift */; };
 		46685C91272F645800CD4951 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46685C8F272F645800CD4951 /* Main.storyboard */; };
 		46685C93272F645C00CD4951 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46685C92272F645C00CD4951 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		463BBF582733B16700EF7B83 /* Bebas-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Bebas-Regular.ttf"; path = "../../../Downloads/bebas/Bebas-Regular.ttf"; sourceTree = "<group>"; };
+		463BBF5A273729A100EF7B83 /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		46685C88272F645800CD4951 /* MovieLogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieLogger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46685C8B272F645800CD4951 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46685C90272F645800CD4951 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				46685CB9272F64C300CD4951 /* ItemsViewController.swift */,
 				46685CBD272F6DA800CD4951 /* MovieStore.swift */,
 				46685CBF2730CE3D00CD4951 /* DetailViewController.swift */,
+				463BBF5A273729A100EF7B83 /* ImageStore.swift */,
 			);
 			path = MovieLogger;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				46685CC02730CE3D00CD4951 /* DetailViewController.swift in Sources */,
 				46685CBE272F6DA800CD4951 /* MovieStore.swift in Sources */,
 				46685C8C272F645800CD4951 /* AppDelegate.swift in Sources */,
+				463BBF5B273729A100EF7B83 /* ImageStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,11 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        // Create an ImageStore
+        let imageStore = ImageStore()
+
         
         // Access the ItemsViewController and set its movie store
         let navController = window!.rootViewController as! UINavigationController
         let moviesController = navController.topViewController as! ItemsViewController
         moviesController.movieStore = movieStore
+        moviesController.imageStore = imageStore
         
         return true
     }

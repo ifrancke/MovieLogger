@@ -9,6 +9,8 @@
 import UIKit
 class ItemsViewController: UITableViewController {
     var movieStore: MovieStore!
+    var imageStore: ImageStore!
+    
     override func tableView(_ tableView: UITableView,
                             numberOfRowsInSection section: Int) -> Int {
         return movieStore.allMovies.count
@@ -61,6 +63,8 @@ class ItemsViewController: UITableViewController {
                                              handler: { (action) -> Void in
                 // Remove the movie from the store
                 self.movieStore.removeMovie(movie)
+                // Remove the item's image from the image store
+                self.imageStore.deleteImage(forKey: movie.movieKey)
                 // Also remove that row from the table view with an animation
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)
             })
@@ -87,6 +91,7 @@ class ItemsViewController: UITableViewController {
                     = segue.destination as! DetailViewController
                 detailViewController.movie = movie
                 detailViewController.movieStore = movieStore
+                detailViewController.imageStore = imageStore
             } default:
                 preconditionFailure("Unexpected segue identifier.")
         }

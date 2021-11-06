@@ -31,7 +31,7 @@ class MovieStore {
     
     init() {
         for _ in 0..<5 {
-            createMovie()
+            createMovieDebug()
         }
         typealias allMoviesType = [Movie]?
         do {
@@ -47,6 +47,11 @@ class MovieStore {
     }
     
     @discardableResult func createMovie() -> Movie {
+        let newMovie = Movie(random:false)
+        allMovies.append(newMovie)
+        return newMovie
+    }
+    @discardableResult func createMovieDebug() -> Movie {
         let newMovie = Movie(random:true)
         allMovies.append(newMovie)
         return newMovie

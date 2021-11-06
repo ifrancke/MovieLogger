@@ -7,18 +7,21 @@
 //
 
 import UIKit
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var ratingField: UITextField!
     @IBOutlet weak var reviewField: UITextView!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet var imageView: UIImageView!
     
     var movie: Movie! { didSet {
         navigationItem.title = movie.title
         }
     }
     var movieStore: MovieStore!
+    var imageStore: ImageStore!
+
     
     let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -43,6 +46,13 @@ class DetailViewController: UIViewController {
         ratingField.text =
             numberFormatter.string(from: NSNumber(value: movie.starRating))
         dateLabel.text = dateFormatter.string(from: movie.dateCreated)
+        
+        // Get the item key
+        let key = movie.movieKey
+        // If there is an associated image with the item
+        // display it on the image view
+        let imageToDisplay = imageStore.image(forKey: key)
+        imageView.image = imageToDisplay
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -97,5 +107,31 @@ class DetailViewController: UIViewController {
         default:
                 preconditionFailure("Unexpected segue identifier.")
         }
+    }
+    
+    @IBAction func takePicture(_ sender: UIBarButtonItem) {
+        let imagePicker = UIImagePickerController()
+        // If the device has a camera, take a picture; otherwise,
+        // just pick from photo library
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            imagePicker.sourceType = .camera
+        } else {
+            imagePicker.sourceType = .photoLibrary
+        }
+        imagePicker.delegate = self
+        // Place image picker on the screen
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // Get picked image from info dictionary
+        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        // Put that image on the screen in the image view
+        imageView.image = image
+        // Store the image in the ImageStore for the item's key
+        imageStore.setImage(image, forKey: movie.movieKey)
+        // Take image picker off the screen -
+        // you must call this dismiss method
+        dismiss(animated: true, completion: nil)
     }
 }

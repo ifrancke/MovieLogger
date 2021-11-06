@@ -12,12 +12,14 @@ class Movie: NSObject, Codable {
     var starRating: Double
     var review: String
     let dateCreated: Date
+    let movieKey : String
     
     init(title: String, review: String, starRating: Double) {
         self.title = title
         self.starRating = starRating
         self.review = review
         self.dateCreated = Date()
+        self.movieKey = UUID().uuidString
         super.init()
     }
     convenience init(random: Bool = false) {
@@ -31,7 +33,7 @@ class Movie: NSObject, Codable {
             let randomName = "\(randomAdjective) \(randomNoun)"
             let randomValue = Int.random(in: 0...10)
             let randomStars = Double(randomValue)/2.0
-            let randomReview = "So random"
+            let randomReview = ""
             self.init(title: randomName,
                       review: randomReview,
                       starRating: randomStars)
@@ -45,12 +47,14 @@ class Movie: NSObject, Codable {
         aCoder.encode(dateCreated, forKey: "dateCreated")
         aCoder.encode(starRating, forKey: "starRating")
         aCoder.encode(review, forKey: "review")
+        aCoder.encode(movieKey, forKey: "movieKey")
     }
     required init(coder aDecoder: NSCoder) {
         title = aDecoder.decodeObject(forKey: "title") as! String
         dateCreated = aDecoder.decodeObject(forKey: "dateCreated") as! Date
         starRating = aDecoder.decodeObject(forKey: "starRating") as! Double
         review = aDecoder.decodeObject(forKey: "review") as! String
+        movieKey = aDecoder.decodeObject(forKey: "movieKey") as! String
         super.init()
     }
 }
