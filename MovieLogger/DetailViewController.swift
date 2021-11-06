@@ -11,7 +11,7 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var ratingField: UITextField!
-    @IBOutlet weak var reviewField: UITextField!
+    @IBOutlet weak var reviewField: UITextView!
     @IBOutlet weak var dateLabel: UILabel!
     
     var movie: Movie! { didSet {
@@ -34,6 +34,9 @@ class DetailViewController: UIViewController {
         return formatter
     }()
     override func viewWillAppear(_ animated: Bool) {
+        self.reviewField.layer.borderColor = UIColor.lightGray.cgColor;
+        self.reviewField.layer.borderWidth = 1.0;
+        self.reviewField.layer.cornerRadius = 8;
         super.viewWillAppear(animated)
         titleField.text = movie.title
         reviewField.text = movie.review

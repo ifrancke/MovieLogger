@@ -110,27 +110,28 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fSq-nQ-Iwq">
-                                        <rect key="frame" x="0.0" y="76" width="343" height="180"/>
+                                        <rect key="frame" x="0.0" y="76" width="343" height="130"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6k-Ql-EEd">
-                                                <rect key="frame" x="0.0" y="0.0" width="60" height="180"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="130"/>
                                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jpy-xb-Lc7">
-                                                <rect key="frame" x="68" y="0.0" width="275" height="180"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Gzw-mz-yxm">
+                                                <rect key="frame" x="68" y="0.0" width="275" height="130"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="180" id="zlw-ZC-C8N"/>
+                                                    <constraint firstAttribute="height" constant="130" id="ZCq-UN-GrJ"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Watched" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DaI-ZS-IYL">
-                                        <rect key="frame" x="0.0" y="264" width="343" height="323"/>
+                                        <rect key="frame" x="0.0" y="214" width="343" height="373"/>
                                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -139,7 +140,7 @@
                                 <constraints>
                                     <constraint firstItem="ru1-ra-JiT" firstAttribute="leading" secondItem="q5u-04-SQV" secondAttribute="leading" id="4kn-N9-ahq"/>
                                     <constraint firstItem="DaI-ZS-IYL" firstAttribute="centerX" secondItem="YyP-tU-GYq" secondAttribute="centerX" id="5LK-qZ-kuD"/>
-                                    <constraint firstItem="oMw-oa-SQ3" firstAttribute="leading" secondItem="jpy-xb-Lc7" secondAttribute="leading" id="GSx-Dt-Ta9"/>
+                                    <constraint firstItem="Zf1-Eb-b3z" firstAttribute="leading" secondItem="Gzw-mz-yxm" secondAttribute="leading" id="R6h-C9-4Tl"/>
                                     <constraint firstItem="oMw-oa-SQ3" firstAttribute="leading" secondItem="Zf1-Eb-b3z" secondAttribute="leading" id="vHQ-95-kg6"/>
                                 </constraints>
                             </stackView>
@@ -150,6 +151,7 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem systemItem="camera" id="XCC-N7-RiE"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="x3p-ib-xsu"/>
                                     <barButtonItem systemItem="trash" id="Ept-vV-JxE">
                                         <connections>
                                             <action selector="deleteMovie:" destination="AkC-id-MmQ" id="fld-c5-54H"/>
@@ -177,7 +179,7 @@
                     <connections>
                         <outlet property="dateLabel" destination="DaI-ZS-IYL" id="3ej-L0-zKM"/>
                         <outlet property="ratingField" destination="Zf1-Eb-b3z" id="tcn-2I-I4l"/>
-                        <outlet property="reviewField" destination="jpy-xb-Lc7" id="tO1-24-iMT"/>
+                        <outlet property="reviewField" destination="Gzw-mz-yxm" id="Jcw-fd-cpe"/>
                         <outlet property="titleField" destination="oMw-oa-SQ3" id="gpR-0e-8ZN"/>
                         <segue destination="D1R-Uf-XQ0" kind="show" identifier="deleteMovie" id="Fds-IG-Lfg"/>
                     </connections>
